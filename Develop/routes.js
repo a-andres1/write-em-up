@@ -1,4 +1,5 @@
-
+const path = require('path');
+const fs = require('fs');
 
 // setting up routes
 app.get('/notes', (req, res) => {
