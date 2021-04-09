@@ -11,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // importing routes app
-require ('./Develop/routes')(app);
+require ('./routes/apiRoutes.js')(app);
+require ('./routes/htmlRoutes.js')(app);
 
 
 // Listener
