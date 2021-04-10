@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = (app) => {
 // setting up routes for HTML
-let notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'))
+let notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
 app.get('/api/notes', (req, res) => {
   console.log(notes);
@@ -12,8 +12,11 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-   notes.push(req.body);
-   fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+  let notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+  const newNote = {title, text, id};
+  const array = [].concat(JSON.stringify(newNote)); 
+  notes.push(req.body);
+   fs.writeFileSync('./db/db.json');
    res.end("Did it.")
 
 });
